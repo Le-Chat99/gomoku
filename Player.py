@@ -7,8 +7,7 @@ class player:
         self.win=win
         self.is_player1=is_player1
     def _location(self,i,j):
-        self.board_cells[i][j].
-        pass
-
-    def _location_illu(self):
-
+        self.board._cells[i][j].player_here()
+    def _move(self,i,j):
+        self.board._cells[i][j].player_leave()
+        self.board._cells[i+5][j].player_here()
