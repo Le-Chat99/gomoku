@@ -45,5 +45,6 @@ class Cell:
         self.rec_p = self._win.canvas.create_rectangle(self._x1, self._y1, self._x2, self._y2, fill="blue")
         
     def player_leave(self):
-        self.visited=False
-        self._win.canvas.delete(self.rec_p)
+        if self.visited:
+            self._win.canvas.delete(self.rec_p)
+            self.visited=False
