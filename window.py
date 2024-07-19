@@ -8,7 +8,6 @@ class Window:
         self.__root = Tk()  # Create the root window
         self.__root.title("MazeRunner3000")  # Set the title
         self.__root.protocol("WM_DELETE_WINDOW",self.close)
-
         self.canvas= Canvas(self.__root, width=self.width, height=self.height, bg='white')
         self.canvas.pack(fill=BOTH, expand=True)
         self.running=False
@@ -26,3 +25,10 @@ class Window:
 
     def draw_line(self, Line, fill_color):
         Line.draw(self.canvas, fill_color)
+
+    def game_control(self,player):
+        self.__root.bind("a", lambda event: player.move_left())
+        self.__root.bind("d", lambda event: player.move_right())
+        self.__root.bind("w", lambda event: player.move_up())
+        self.__root.bind("s", lambda event: player.move_down())
+        self.canvas.pack()
