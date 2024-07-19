@@ -9,6 +9,7 @@ def main():
     num_rows = 15
     Br = Board(100, 100, num_rows, num_cols, 40, 40,win)
     Plr= player(Br, win)
+
     win.game_control(Plr)
     win.wait_for_close()
 

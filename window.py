@@ -6,7 +6,7 @@ class Window:
         self.width=width
         self.height=height
         self.__root = Tk()  # Create the root window
-        self.__root.title("MazeRunner3000")  # Set the title
+        self.__root.title("GomokuMaster10.000")  # Set the title
         self.__root.protocol("WM_DELETE_WINDOW",self.close)
         self.canvas= Canvas(self.__root, width=self.width, height=self.height, bg='white')
         self.canvas.pack(fill=BOTH, expand=True)
@@ -31,4 +31,5 @@ class Window:
         self.__root.bind("d", lambda event: player.move_right())
         self.__root.bind("w", lambda event: player.move_up())
         self.__root.bind("s", lambda event: player.move_down())
+        self.__root.bind("f", lambda event: player._plant_move())
         self.canvas.pack()
