@@ -9,8 +9,9 @@ def main():
     num_rows = 15
     Br = Board(100, 100, num_rows, num_cols, 40, 40,win)
     Plr= player(Br, win)
-
+    Plr._plant_move()
     win.game_control(Plr)
     win.wait_for_close()
+
 
 main()

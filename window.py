@@ -6,7 +6,7 @@ class Window:
         self.width=width
         self.height=height
         self.__root = Tk()  # Create the root window
-        self.__root.title("GomokuMaster10.000")  # Set the title
+        self.__root.title("Gomoku SSR Master 10.000")  # Set the title
         self.__root.protocol("WM_DELETE_WINDOW",self.close)
         self.canvas= Canvas(self.__root, width=self.width, height=self.height, bg='white')
         self.canvas.pack(fill=BOTH, expand=True)
