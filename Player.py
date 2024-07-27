@@ -17,14 +17,20 @@ class player:
     def _not_here(self):
         self.board._cells[self.i][self.j].player_leave()
     def _plant_move(self):
+        color=self.board._cells[self.i][self.j]._cl
         if self.is_player1:
-            if not self.board._cells[self.i][self.j].is_w and not self.board._cells[self.i][self.j].is_b:
+            if color=='none':
                 self.board._cells[self.i][self.j].plant_b()
                 self.is_player1=False
+                print(self.board._cells[self.i][self.j]._cl)
         else:
-            if not self.board._cells[self.i][self.j].is_w and not self.board._cells[self.i][self.j].is_b:
+            if color=='none':
                 self.board._cells[self.i][self.j].plant_w()
                 self.is_player1=True
+                print(self.board._cells[self.i][self.j]._cl)
+        curentclr=self.board._cells[self.i][self.j]._cl
+        count = self.board.count_point(self.i,self.j,curentclr)
+        if count==5: print("GAME end")
     def move_left(self):
         self._not_here()
         if self.i > 0:

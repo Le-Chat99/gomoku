@@ -10,8 +10,7 @@ class Cell:
         self._y2=y2
         self._win=win
         self.visited=False
-        self.is_w=False
-        self.is_b=False
+        self._cl='none'
 
     def Draw(self, fill_color):
         def bleh():
@@ -51,13 +50,8 @@ class Cell:
             self.visited=False
 
     def plant_b(self):
-        if not self.is_w:
-            if not self.is_b:
-                self.is_b=True
-                self._win.canvas.create_oval(self._x1+3, self._y1+3, self._x2-3, self._y2-3, fill= "black")
+        self._cl='bl'
+        self._win.canvas.create_oval(self._x1+3, self._y1+3, self._x2-3, self._y2-3, fill= "black")
     def plant_w(self):
-        if not self.is_w:
-            if not self.is_b:
-                self.is_w=True
-                self._win.canvas.create_oval(self._x1+3, self._y1+3, self._x2-3, self._y2-3, fill= "white")
-    
+        self._cl='wh'
+        self._win.canvas.create_oval(self._x1+3, self._y1+3, self._x2-3, self._y2-3, fill= "white")

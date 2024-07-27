@@ -46,8 +46,29 @@ class Board:
         self.win.redraw()
         time.sleep(0.001)
 
-    def point_count(self,i,j):
-        dicrect=[[i+1,j,i-1,j],[i,j+1,i,j-1],[i+1,j+1,i-1,j-1], []]
-    
+    def count_point(self,i,j,curentclr,count=1):
+        directs=[[1,0,-1,0],[0,1,0,-1],[1,1,-1,-1], [-1,+1,+1,-1]]
+        for i1,j1,i2,j2 in directs:
+            temcount=1
+            ni,nj=i,j
+            while self.dicect_advance(ni,nj,i1,j1,curentclr):
+                temcount+=1
+                ni,nj=ni+i1,nj+j1
+            ni,nj=i,j
+            while self.dicect_advance(ni,nj,i2,j2,curentclr):
+                temcount+=1
+                ni,nj=ni+i2,nj+j2
 
+            if temcount> count: count=temcount
+        return count
     
+    def dicect_advance(self,i,j,si,sj,curentclr):
+        
+        ni=i+si
+        nj=j+sj
+        print(f"{ni},{nj}")
+        if ni < 0 or ni >= 15 or nj < 0 or nj >= 15:
+            return False
+        if self._cells[ni][nj]._cl!=curentclr:
+            return False
+        return True
