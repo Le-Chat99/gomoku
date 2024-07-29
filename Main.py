@@ -12,6 +12,4 @@ def main():
     Plr._plant_move()
     win.game_control(Plr)
     win.wait_for_close()
-
-
 main()

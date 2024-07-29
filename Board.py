@@ -66,7 +66,6 @@ class Board:
         
         ni=i+si
         nj=j+sj
-        print(f"{ni},{nj}")
         if ni < 0 or ni >= 15 or nj < 0 or nj >= 15:
             return False
         if self._cells[ni][nj]._cl!=curentclr:

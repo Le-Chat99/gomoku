@@ -22,12 +22,10 @@ class player:
             if color=='none':
                 self.board._cells[self.i][self.j].plant_b()
                 self.is_player1=False
-                print(self.board._cells[self.i][self.j]._cl)
         else:
             if color=='none':
                 self.board._cells[self.i][self.j].plant_w()
                 self.is_player1=True
-                print(self.board._cells[self.i][self.j]._cl)
         curentclr=self.board._cells[self.i][self.j]._cl
         count = self.board.count_point(self.i,self.j,curentclr)
         if count==5: print("GAME end")

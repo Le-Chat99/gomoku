@@ -14,4 +14,4 @@ class Line:
         y1=self.p1.y
         x2=self.p2.x
         y2=self.p2.y
-        Canvas.create_line(x1,y1,x2,y2, fill=fill_color,width=2)
+        Canvas.create_line(x1,y1,x2,y2, fill=fill_color,width=5)
