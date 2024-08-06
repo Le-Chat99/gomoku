@@ -1,5 +1,6 @@
 from tkinter import Tk, BOTH, Canvas
 from Point import *
+from Board import *
 
 class Window:
     def __init__(self, width, height):
@@ -26,10 +27,11 @@ class Window:
     def draw_line(self, Line, fill_color):
         Line.draw(self.canvas, fill_color)
 
-    def game_control(self,player):
+    def game_control(self,player,Board):
         self.__root.bind("a", lambda event: player.move_left())
         self.__root.bind("d", lambda event: player.move_right())
         self.__root.bind("w", lambda event: player.move_up())
         self.__root.bind("s", lambda event: player.move_down())
         self.__root.bind("f", lambda event: player._plant_move())
+        self.__root.bind("r", lambda event: Board._create_cells())
         self.canvas.pack()
