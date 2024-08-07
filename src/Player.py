@@ -30,8 +30,9 @@ class player:
         count = self.board.count_point(self.i,self.j,curentclr)
         if count==5:
             self.win.canvas.delete("all")
-            self.board._cells=[]
-            self.win.canvas.create_text(400.0,400.0, text = "game end")
+            self.board._cells=None
+            rlt= "black win" if curentclr == "bl" else "white win"
+            self.win.canvas.create_text(400.0,400.0, text = f"game end\n{rlt}\nPress 'R' to resatrt")
     def move_left(self):
         self._not_here()
         if self.i > 0:

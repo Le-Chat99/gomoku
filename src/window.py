@@ -28,10 +28,17 @@ class Window:
         Line.draw(self.canvas, fill_color)
 
     def game_control(self,player,Board):
+        def game_restart():
+            self.canvas.delete("all")
+            Board._create_cells()
+            player.is_player1=True
+            player.i=7
+            player.j=7
+            player._plant_move()
         self.__root.bind("a", lambda event: player.move_left())
         self.__root.bind("d", lambda event: player.move_right())
         self.__root.bind("w", lambda event: player.move_up())
         self.__root.bind("s", lambda event: player.move_down())
         self.__root.bind("f", lambda event: player._plant_move())
-        self.__root.bind("r", lambda event: Board._create_cells())
+        self.__root.bind("r", lambda event: game_restart())
         self.canvas.pack()
