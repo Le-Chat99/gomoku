@@ -1,1 +1,1 @@
-python3 ./sh/main.py
+python3 ./gomoku/src/Main.py
